@@ -59,7 +59,7 @@ def colour(action, km):
 
 def pretty(action, km):
     return {km["send"]: "Enter: send", km["dictation"]: f"{action}: talk / stop", "Layer": "Second layer",
-            "VolumeUp": "Volume up", "VolumeDown": "Volume down"}.get(action, action)
+            "DpiCycle": "Switch DPI", "VolumeUp": "Volume up", "VolumeDown": "Volume down"}.get(action, action)
 
 
 def keymap_svg(km, name):

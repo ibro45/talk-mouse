@@ -23,6 +23,8 @@ def encode(action):
         raw = [0x02, 0x01, 0x00, KEYS[action]]
     elif action in CONSUMER:
         raw = [0x0A, 0x01, CONSUMER[action] >> 8, CONSUMER[action] & 0xFF]
+    elif action == "DpiCycle":
+        raw = [0x06, 0x01, 0x06]
     else:
         raise ValueError(f"Razer cannot store {action!r}")
     return bytes(raw).ljust(7, b"\0")

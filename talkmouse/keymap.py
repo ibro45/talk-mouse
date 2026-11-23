@@ -5,6 +5,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 KEYS = {"Enter": 0x28, **{f"F{n}": 0x68 + n - 13 for n in range(13, 25)}}  # HID keyboard usages
 CONSUMER = {"VolumeUp": 0xE9, "VolumeDown": 0xEA}                           # HID consumer usages
+SPECIAL = ("DpiCycle",)  # handled inside the mouse; sends nothing to the computer
 MICE = ("razer", "g502")
 LAYERS = ("normal", "hold")
 LABELS = {
@@ -33,7 +34,7 @@ def load(path=ROOT / "keymap.toml"):
                 if action == "Layer":
                     if (layer, button) != ("normal", "trigger"):
                         raise ValueError(f"{where}: only the trigger can be the layer button")
-                elif action not in KEYS and action not in CONSUMER:
+                elif action not in KEYS and action not in CONSUMER and action not in SPECIAL:
                     raise ValueError(f"{where}: unknown action {action!r}")
                 if layer == "normal" and button in ("left", "right"):
                     raise ValueError(f"{where}: refusing to replace a normal click")

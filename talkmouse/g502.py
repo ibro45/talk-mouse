@@ -20,6 +20,8 @@ def encode(action):
         return bytes([0x80, 0x02, 0x00, KEYS[action]])
     if action in CONSUMER:
         return bytes([0x80, 0x03]) + CONSUMER[action].to_bytes(2, "big")
+    if action == "DpiCycle":
+        return bytes([0x90, 0x05, 0xFF, 0xFF])
     if action == "Layer":
         return bytes([0x90, 0x0B, 0xFF, 0xFF])
     raise ValueError(f"G502 cannot store {action!r}")

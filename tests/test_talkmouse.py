@@ -56,6 +56,7 @@ class Encoding(unittest.TestCase):
     def test_razer(self):
         self.assertEqual(razer.encode("F13").hex(), "02010068000000")
         self.assertEqual(razer.encode("VolumeUp").hex(), "0a0100e9000000")
+        self.assertEqual(razer.encode("DpiCycle").hex(), "06010600000000")
         r = razer.report(0x02, 0x8C, 0x0A, [1, 4, 0])
         x = 0
         for b in r[2:88]:
@@ -64,6 +65,7 @@ class Encoding(unittest.TestCase):
 
     def test_g502(self):
         self.assertEqual(g502.encode("F13").hex(), "80020068")
+        self.assertEqual(g502.encode("DpiCycle").hex(), "9005ffff")
         self.assertEqual(g502.encode("Layer").hex(), "900bffff")
         self.assertEqual(g502.crc(b"123456789").hex(), "29b1")  # CRC-16/CCITT-FALSE check value
 
@@ -101,7 +103,7 @@ class Checklist(unittest.TestCase):
         km = keymap.load()
         events = {e for _, e in tester.checklist("g502", km)}
         self.assertTrue({"F13", "F20", "F23", "ENTER", "LEFT"} <= events)
-        self.assertNotIn("Layer", events)
+        self.assertFalse({"Layer", "DpiCycle"} & events)
 
 
 class Drawings(unittest.TestCase):

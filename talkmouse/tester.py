@@ -17,7 +17,7 @@ def checklist(mouse, km):
     rows = [("Left click", "LEFT"), ("Right click", "RIGHT"), ("Wheel click", "MIDDLE")]
     for layer, prefix in (("normal", ""), ("hold", "Trigger + ")):
         for button, action in km[mouse][layer].items():
-            if action != "Layer":
+            if action != "Layer" and action not in keymap.SPECIAL:
                 rows.append((prefix + keymap.label(mouse, button), special.get(action, action)))
     return rows
 

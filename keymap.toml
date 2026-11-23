@@ -1,6 +1,6 @@
 # What each button sends. This file drives the tool, the tester and the diagrams.
 #
-# Actions: F13-F24, Enter, VolumeUp, VolumeDown, Layer (trigger only).
+# Actions: F13-F24, Enter, VolumeUp, VolumeDown, DpiCycle, Layer (trigger only).
 # Buttons not listed here are left exactly as they are on the mouse.
 
 dictation = "F20"   # bind this to your speech-to-text toggle
@@ -20,6 +20,7 @@ right = "F20"
 back = "F16"
 forward = "F17"
 wheel = "F18"
+top = "DpiCycle"
 wheel_up = "VolumeUp"
 wheel_down = "VolumeDown"
 
@@ -40,5 +41,6 @@ right = "F20"
 back = "F16"
 forward = "F17"
 wheel = "F18"
+top = "DpiCycle"
 g7 = "F22"
 g8 = "F23"

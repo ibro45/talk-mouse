@@ -13,7 +13,7 @@ The other buttons send F13–F19 and F21–F23, keys that ordinary keyboards don
 | **right click** | F20 | start or stop dictation |
 | **left click** | Enter | send |
 
-Normal left and right clicks don't change. F20 is bound to your dictation app on the computer, and any speech-to-text tool you can toggle with a key or command will do.
+Normal left and right clicks don't change. The top button (the DPI button, or G9 on the G502) now sends F15, so **switching DPI moves to trigger + top button**; on the G502, G7 and G8 stop changing DPI too. Your DPI values aren't touched. F20 is bound to your dictation app on the computer, and any speech-to-text tool you can toggle with a key or command will do.
 
 ![Razer button map](docs/img/razer.svg)
 
@@ -29,7 +29,7 @@ You need Python 3.11+. The tester also needs `python-evdev`.
 2. **Look first:** `./talk-mouse show razer` (or `g502`) only reads.
 3. **Save it on the mouse:** `./talk-mouse apply razer`. Add `-n` to see what would change. A backup is saved first, and every setting is read back.
 4. **Connect dictation:** bind F20 to your speech-to-text toggle. For Hyprland, see [`setup/hyprland.lua`](setup/hyprland.lua).
-5. **Check it:** `./talk-mouse test razer` ticks off each button as you press it.
+5. **Check it:** `./talk-mouse test razer` ticks off each button as you press it. Switching DPI isn't listed, because the mouse does it without sending a key.
 
 To undo: `./talk-mouse restore ~/.local/state/talk-mouse/<backup>.json`.
 
