@@ -1,0 +1,44 @@
+# What each button sends. This file drives the tool, the tester and the diagrams.
+#
+# Actions: F13-F24, Enter, VolumeUp, VolumeDown, Layer (trigger only).
+# Buttons not listed here are left exactly as they are on the mouse.
+
+dictation = "F20"   # bind this to your speech-to-text toggle
+send = "Enter"
+
+[razer]
+name = "Razer Basilisk V3 X HyperSpeed"
+
+[razer.normal]
+back = "F13"
+forward = "F14"
+top = "F15"
+
+[razer.hold]        # while the thumb trigger is held
+left = "Enter"
+right = "F20"
+back = "F16"
+forward = "F17"
+wheel = "F18"
+wheel_up = "VolumeUp"
+wheel_down = "VolumeDown"
+
+[g502]
+name = "Logitech G502 HERO"
+
+[g502.normal]
+back = "F13"
+forward = "F14"
+top = "F15"
+g7 = "F19"
+g8 = "F21"
+trigger = "Layer"
+
+[g502.hold]
+left = "Enter"
+right = "F20"
+back = "F16"
+forward = "F17"
+wheel = "F18"
+g7 = "F22"
+g8 = "F23"

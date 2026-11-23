@@ -1,0 +1,7 @@
+# Let the logged-in user program and test these two mice without root.
+# Copy to /etc/udev/rules.d/, then replug the mouse.
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="1532", ATTRS{idProduct}=="00b9", TAG+="uaccess"
+KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c08b", TAG+="uaccess"
+# Only needed for "talk-mouse test":
+KERNEL=="event*", SUBSYSTEM=="input", ATTRS{idVendor}=="1532", ATTRS{idProduct}=="00b9", TAG+="uaccess"
+KERNEL=="event*", SUBSYSTEM=="input", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="c08b", TAG+="uaccess"
